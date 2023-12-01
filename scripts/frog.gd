@@ -19,6 +19,7 @@ signal pad_changed(pad: LilyPad)
 var charge: float
 var cursor_pos: Vector3
 var angle: float
+var last_move_time: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +51,7 @@ func _input(event):
 		return
 	if state == FrogState.Aiming:
 		if event is InputEventMouseMotion:
-			turn(event.velocity.x)
+			turn(event.relative.x)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -78,8 +79,11 @@ func _process(delta):
 			state = FrogState.Fishing
 
 func turn(amount: float):
-	angle += amount
-	global_rotate(Vector3.UP, amount / DisplayServer.window_get_size().x * -sensitivity)
+	var current_time = Time.get_ticks_msec()
+	var delta_time = current_time - last_move_time
+	last_move_time = current_time
+	if delta_time < 100:
+		global_rotate(Vector3.UP, amount / 3 / delta_time * -sensitivity)
 
 func move_to_pad(pad: LilyPad):
 	state = FrogState.Moving
