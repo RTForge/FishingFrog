@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfp0pqov2ljjk"]
+
+[ext_resource type="ArrayMesh" uid="uid://c1n4xiu16lxi5" path="res://scenes/terrain.tres" id="1_rjw0m"]
+
+[node name="HTerrain_FullMesh" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 2.08165e-12, -256)
+mesh = ExtResource("1_rjw0m")

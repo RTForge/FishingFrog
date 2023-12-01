@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1ihhc54d3d0t"]
+
+[ext_resource type="Texture2D" uid="uid://83rk0kbls544" path="res://textures/aim.png" id="1_xo7kg"]
+
+[sub_resource type="Shader" id="Shader_j44kc"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.1.2.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_never,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float fill_amount : hint_range(0.0, 1.0);
+
+
+void vertex() {
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo_tex.rgb;
+	METALLIC = 0.0;
+	ROUGHNESS = 1.0;
+	SPECULAR = 0.0;
+	
+	if (1.0 - UV.y < fill_amount)
+		ALPHA = albedo_tex.a;
+	else
+		ALPHA = min(albedo_tex.a, max(0.1, UV.y * UV.y * UV.y - 0.33));
+}
+"
+
+[resource]
+render_priority = 1
+shader = SubResource("Shader_j44kc")
+shader_parameter/fill_amount = 1.0
+shader_parameter/texture_albedo = ExtResource("1_xo7kg")

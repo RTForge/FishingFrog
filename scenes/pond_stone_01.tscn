@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://btpbk8aog1fm5"]
+
+[ext_resource type="PackedScene" uid="uid://def03wpr5lfw2" path="res://models/pond_stone01.glb" id="1_enqhq"]
+[ext_resource type="Material" uid="uid://cusm555sqlxn" path="res://shaders/log_rock.tres" id="2_uj07s"]
+
+[node name="pond_stone01" instance=ExtResource("1_enqhq")]
+
+[node name="stone_01_Log_rocks_0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_uj07s")

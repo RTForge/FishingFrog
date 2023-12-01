@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctru1hfyrsxlc"]
+
+[ext_resource type="PackedScene" uid="uid://btotpdygo84wn" path="res://models/pond_grass03.glb" id="1_l0p4y"]
+[ext_resource type="Material" uid="uid://cko4ga2ags8wj" path="res://shaders/pond_assets_0.tres" id="2_5t0je"]
+
+[node name="pond_grass03" instance=ExtResource("1_l0p4y")]
+
+[node name="water_grass_03_Plants_0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_5t0je")

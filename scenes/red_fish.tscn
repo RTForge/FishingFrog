@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lnyd7jhh7mn3"]
+
+[ext_resource type="Texture2D" uid="uid://brihi6kncoow0" path="res://textures/fishTilesheet.png" id="1_ee7dw"]
+[ext_resource type="Script" path="res://scripts/fish.gd" id="2_p6o38"]
+
+[node name="RedFish" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 2.08165e-12)
+billboard = 1
+alpha_cut = 1
+texture_filter = 5
+texture = ExtResource("1_ee7dw")
+hframes = 18
+vframes = 7
+frame = 79
+script = ExtResource("2_p6o38")
+points = 5

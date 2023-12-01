@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh75xfu2o7o0g"]
+
+[ext_resource type="PackedScene" uid="uid://c2lwedslghr0a" path="res://models/pond_reed.glb" id="1_e61kh"]
+[ext_resource type="Material" uid="uid://cko4ga2ags8wj" path="res://shaders/pond_assets_0.tres" id="2_7h1ag"]
+
+[node name="pond_reed" instance=ExtResource("1_e61kh")]
+
+[node name="reed_01_Plants_0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_7h1ag")

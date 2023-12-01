@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvyfb8aeeiw4q"]
+
+[ext_resource type="PackedScene" uid="uid://cjfypdvdc2cna" path="res://models/pond_lotus01.glb" id="1_po333"]
+[ext_resource type="Material" uid="uid://cko4ga2ags8wj" path="res://shaders/pond_assets_0.tres" id="2_6anvj"]
+
+[node name="pond_lotus01" instance=ExtResource("1_po333")]
+
+[node name="lotus_01_Plants_0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6anvj")

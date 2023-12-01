@@ -1,0 +1,211 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7t84w15ukkng"]
+
+[ext_resource type="Theme" uid="uid://c604x7b7ccli7" path="res://themes/ff.theme" id="1_qvevu"]
+[ext_resource type="Texture2D" uid="uid://dwuxrwbqdjbkq" path="res://textures/fishTile_081.png" id="2_8oln2"]
+[ext_resource type="Script" path="res://scripts/game_overlay.gd" id="2_phiuc"]
+[ext_resource type="Texture2D" uid="uid://drnvh7mlanwk0" path="res://textures/clock.png" id="3_e73ar"]
+[ext_resource type="AudioStream" uid="uid://c38jjqu4ljmj4" path="res://sounds/maximize_006.ogg" id="5_a5bnu"]
+[ext_resource type="AudioStream" uid="uid://clj2g80w6ga5t" path="res://sounds/minimize_008.ogg" id="6_whx7t"]
+
+[node name="GameOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qvevu")
+script = ExtResource("2_phiuc")
+
+[node name="Hint" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -746.0
+offset_top = -268.0
+offset_right = 746.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 2
+
+[node name="BottomBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 2
+
+[node name="TimeContainer" type="HBoxContainer" parent="BottomBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="TimeIcon" type="TextureRect" parent="BottomBar/HBoxContainer/TimeContainer"]
+layout_mode = 2
+texture = ExtResource("3_e73ar")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TimeValue" type="Label" parent="BottomBar/HBoxContainer/TimeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = " 150"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreContainer" type="HBoxContainer" parent="BottomBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="ScoreIcon" type="TextureRect" parent="BottomBar/HBoxContainer/ScoreContainer"]
+layout_mode = 2
+texture = ExtResource("2_8oln2")
+stretch_mode = 3
+
+[node name="ScoreValue" type="Label" parent="BottomBar/HBoxContainer/ScoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PausePanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PausePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PausePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="PausePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PausePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameOverPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TIME'S UP!"
+
+[node name="ScoreContainer" type="HBoxContainer" parent="GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="ScoreIcon" type="TextureRect" parent="GameOverPanel/MarginContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+texture = ExtResource("2_8oln2")
+stretch_mode = 3
+
+[node name="FinalScoreValue" type="Label" parent="GameOverPanel/MarginContainer/VBoxContainer/ScoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Replay
+"
+
+[node name="QuitButton" type="Button" parent="GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Fader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScoreUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a5bnu")
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="ScoreDownSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_whx7t")
+bus = &"SFX"
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="HintTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="pressed" from="PausePanel/MarginContainer/VBoxContainer/ResumeButton" to="." method="_toggle_pause"]
+[connection signal="pressed" from="PausePanel/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/MarginContainer/VBoxContainer/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="HintTimer" to="." method="_on_hint_timer_timeout"]

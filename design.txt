@@ -1,0 +1,21 @@
+Title: Fishing Frog
+Description: 
+	You are a frog who can catch fish with his tongue. 
+	You have a limited amount of time to catch as many fish as you can.
+
+Environment:
+	- Low-poly 3D style
+	- The playing field is a pond with lily pads and various fish habitats
+	- 3rd person fixed camera pointing at the frog, following the frog
+	  from location to location as it moves around the pond
+	
+Gameplay Elements:
+	- You can hop between lily pads to gain access to different habitats
+	- You cast your tongue in a chosen direction and speed to catch fish
+	- Different habitats will have different chances of catching fish worth 
+	  different amounts of points
+	- Some fish will make you lose points
+	- As you continue to fish in a single habitat, the chances of catching
+	  a fish will decrease.  When you stop fishing in the habitat, the 
+	  chances will slowly increase back to the original level
+	- When the timer counts down to 0, the game ends

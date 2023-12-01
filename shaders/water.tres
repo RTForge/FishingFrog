@@ -1,0 +1,32 @@
+[gd_resource type="Shader" format=3 uid="uid://dt27bafhys7kp"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform float scale;
+uniform float speed;
+uniform sampler2D surface;
+uniform vec3 tint: source_color;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+
+void vertex() {
+}
+
+void fragment() {
+	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
+	depth = depth * 2.0 - 1.0;
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+	depth = depth + VERTEX.z;
+	depth = exp(-depth * 0.8);
+	depth = 1.0 - depth;
+	
+	vec2 uv;
+	uv.y = (UV.y + cos(UV.x * 128.0 + (TIME * speed))*0.001) * scale;
+    uv.x = (UV.x + cos(UV.y * 128.0 + (TIME * speed))*0.001) * scale;
+
+	ALBEDO = texture(surface, uv).rgb * tint;
+	ALBEDO = vec3(depth, depth, depth);
+
+}
+"

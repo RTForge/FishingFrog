@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://glx2avid4b2o"]
+
+[ext_resource type="Texture2D" uid="uid://brihi6kncoow0" path="res://textures/fishTilesheet.png" id="1_qj27e"]
+[ext_resource type="Script" path="res://scripts/fish.gd" id="2_urfcc"]
+
+[node name="GreenFish" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 2.08165e-12)
+billboard = 1
+alpha_cut = 1
+texture_filter = 5
+texture = ExtResource("1_qj27e")
+hframes = 18
+vframes = 7
+frame = 73
+script = ExtResource("2_urfcc")
+points = 3

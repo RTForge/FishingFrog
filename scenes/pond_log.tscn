@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://f51brgnblr8i"]
+
+[ext_resource type="PackedScene" uid="uid://devu4fsh0wkeg" path="res://models/pond_log.glb" id="1_xltck"]
+[ext_resource type="Material" uid="uid://cusm555sqlxn" path="res://shaders/log_rock.tres" id="2_4vop7"]
+
+[node name="pond_log" instance=ExtResource("1_xltck")]
+
+[node name="Cylinder_Log_rocks_0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4vop7")

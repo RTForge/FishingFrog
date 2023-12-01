@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://r6eb1plqir8q"]
+
+[ext_resource type="PackedScene" uid="uid://o63pixl2qpsv" path="res://models/pond_sedge01.glb" id="1_dfp3c"]
+[ext_resource type="Material" uid="uid://cko4ga2ags8wj" path="res://shaders/pond_assets_0.tres" id="2_wv4ha"]
+
+[node name="pond_sedge01" instance=ExtResource("1_dfp3c")]
+
+[node name="sedge_01_Plants_0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_wv4ha")

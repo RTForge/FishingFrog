@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvq0ui263ddv7"]
+
+[ext_resource type="Script" path="res://scripts/lily_pad.gd" id="1_5ovu5"]
+[ext_resource type="PackedScene" uid="uid://ccytwut6jx24h" path="res://models/lilypad_fixed.glb" id="3_t2ij6"]
+
+[node name="LilyPad" type="Node3D"]
+script = ExtResource("1_5ovu5")
+
+[node name="lilypad_fixed" parent="." instance=ExtResource("3_t2ij6")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0161085, 0)
